@@ -134,7 +134,5 @@ int main() {
 			cout << "Invalid choice! Please try again.\n";
 		}
 	} while (choice != 5);
-
-	cout << "\nThank you for using the Queue System. Have a great day!\n";
 	return 0;
 }
