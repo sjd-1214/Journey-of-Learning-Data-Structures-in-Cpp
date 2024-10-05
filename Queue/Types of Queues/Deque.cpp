@@ -131,3 +131,68 @@ public:
 };
 
 
+int main() {
+	int size, choice, value;
+
+	cout << "-------------------------------\n";
+	cout << " Welcome to the Deque Manager! \n";
+	cout << "-------------------------------\n";
+	cout << "Enter the size of the Deque: ";
+	cin >> size;
+
+	Deque dq(size);
+
+	cout << "\nDeque initialized with size: " << size << "\n\n";
+
+	do {
+		cout << "======================================\n";
+		cout << "            Deque Operations          \n";
+		cout << "======================================\n";
+		cout << "1. Insert at Front\n";
+		cout << "2. Insert at Back\n";
+		cout << "3. Remove from Front\n";
+		cout << "4. Remove from Back\n";
+		cout << "5. Display Deque\n";
+		cout << "6. Exit\n";
+		cout << "--------------------------------------\n";
+		cout << "Enter your choice: ";
+		cin >> choice;
+
+		if (choice == 1) {
+			cout << "\nEnter the value to insert at Front: ";
+			cin >> value;
+			dq.insertFront(value);
+			cout << "\n✔️ Successfully inserted " << value << " at the front!\n\n";
+		}
+		else if (choice == 2) {
+			cout << "\nEnter the value to insert at Back: ";
+			cin >> value;
+			dq.insertBack(value);
+			cout << "\n✔️ Successfully inserted " << value << " at the back!\n\n";
+		}
+		else if (choice == 3) {
+			value = dq.removeFront();
+			if (value != '\0')
+				cout << "\n✔️ Successfully removed " << value << " from the front!\n\n";
+		}
+		else if (choice == 4) {
+			value = dq.removeBack();
+			if (value != '\0')
+				cout << "\n✔️ Successfully removed " << value << " from the back!\n\n";
+		}
+		else if (choice == 5) {
+			cout << "\nDisplaying current Deque elements:\n";
+			dq.display();
+			cout << endl;
+		}
+		else if (choice == 6) {
+			cout << "\nExiting the Deque Manager. Goodbye!\n";
+		}
+		else{
+			cout << "\n❌ Invalid choice! Please select a valid operation.\n";
+		}
+
+	} while (choice != 6);
+
+	return 0;
+}
