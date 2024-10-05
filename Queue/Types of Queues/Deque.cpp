@@ -158,46 +158,38 @@ int main() {
 		cout << "Enter your choice: ";
 		cin >> choice;
 
-		switch (choice) {
-		case 1:
+		if (choice == 1) {
 			cout << "\nEnter the value to insert at Front: ";
 			cin >> value;
 			dq.insertFront(value);
 			cout << "\n✔️ Successfully inserted " << value << " at the front!\n\n";
-			break;
-
-		case 2:
+		}
+		else if (choice == 2) {
 			cout << "\nEnter the value to insert at Back: ";
 			cin >> value;
 			dq.insertBack(value);
 			cout << "\n✔️ Successfully inserted " << value << " at the back!\n\n";
-			break;
-
-		case 3:
+		}
+		else if (choice == 3) {
 			value = dq.removeFront();
 			if (value != '\0')
 				cout << "\n✔️ Successfully removed " << value << " from the front!\n\n";
-			break;
-
-		case 4:
+		}
+		else if (choice == 4) {
 			value = dq.removeBack();
 			if (value != '\0')
 				cout << "\n✔️ Successfully removed " << value << " from the back!\n\n";
-			break;
-
-		case 5:
+		}
+		else if (choice == 5) {
 			cout << "\nDisplaying current Deque elements:\n";
 			dq.display();
 			cout << endl;
-			break;
-
-		case 6:
+		}
+		else if (choice == 6) {
 			cout << "\nExiting the Deque Manager. Goodbye!\n";
-			break;
-
-		default:
+		}
+		else{
 			cout << "\n❌ Invalid choice! Please select a valid operation.\n";
-			break;
 		}
 
 	} while (choice != 6);
