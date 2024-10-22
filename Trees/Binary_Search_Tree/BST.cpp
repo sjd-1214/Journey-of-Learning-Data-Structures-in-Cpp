@@ -17,35 +17,54 @@ class BST
 {
 private:
     Node *root;
-    bool insertNode(Node* &rt, int val) {
+    bool insertNode(Node *&rt, int val)
+    {
 
+        if (rt != nullptr)
+        {
+
+            if (val == rt->data)
+            {
+                cout << "Can't reinsert " << val << " - already exists in the tree\n";
+            }
+
+            if (val < rt->data)
+            {
+                insertNode(rt->left, val);
+            }
+            else if (val > rt->data)
+            {
+                insertNode(rt->right, val);
+            }
+        }
+        else
+        {
+            Node *newNode = new Node(val);
+            rt = newNode;
+            return true;
+        }
+    }
+
+    void inOrder(Node* rt) {
 	if (rt != nullptr) {
-
-		if (val == rt->data) {
-			cout<< "Can't reinsert "<<val<<" - already exists in the tree\n";
-		}
-
-		if (val < rt->data) {
-			insertNode(rt->left, val);
-		}
-		else if (val > rt->data) {
-			insertNode(rt->right, val);
-		}
+		inOrder(rt->left);
+		cout << rt->data << " ";
+		inOrder(rt->right);
 	}
-	else {
-		Node* newNode = new Node(val);
-		rt = newNode;
-		return true;
-	}
-	
 }
 
 public:
-BST() {
-	root = nullptr;
-}
-bool insert(int data) {
-	return insertNode(root, data);
+    BST()
+    {
+        root = nullptr;
+    }
+    bool insert(int data)
+    {
+        return insertNode(root, data);
+    }
+
+    void taverse() {
+	inOrder(root);
 }
 };
 
