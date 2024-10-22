@@ -45,13 +45,19 @@ private:
         }
     }
 
-    void inOrder(Node* rt) {
-	if (rt != nullptr) {
-		inOrder(rt->left);
-		cout << rt->data << " ";
-		inOrder(rt->right);
-	}
-}
+    void inOrder(Node *rt)
+    {
+        if (rt != nullptr)
+        {
+            inOrder(rt->left);
+            cout << rt->data << " ";
+            inOrder(rt->right);
+        }
+    }
+
+    int searchKey(Node *root, int data)
+    {
+    }
 
 public:
     BST()
@@ -63,9 +69,15 @@ public:
         return insertNode(root, data);
     }
 
-    void taverse() {
-	inOrder(root);
-}
+    void taverse()
+    {
+        inOrder(root);
+    }
+
+    int search(int key)
+    {
+        return searchKey(root, key);
+    }
 };
 
 int main()
