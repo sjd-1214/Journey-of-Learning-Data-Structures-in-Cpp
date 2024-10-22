@@ -80,8 +80,12 @@ public:
     }
 };
 
-int main()
-{
-
-    return 0;
+int main() {
+	BST t1;
+	t1.insert(10);
+	t1.insert(11);
+	t1.insert(9);
+	t1.insert(9);
+	t1.taverse();
+	return 0;
 }
