@@ -19,6 +19,10 @@ private:
     Node *root;
 
 public:
+BST() {
+	root = nullptr;
+}
+
 };
 
 int main()
