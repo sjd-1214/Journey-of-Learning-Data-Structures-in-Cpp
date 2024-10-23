@@ -76,7 +76,14 @@ public:
 
     int search(int key)
     {
-        return searchKey(root, key);
+        int value = searchKey(root, key);
+if (value != key || value == '\0') {
+	cout << "The key --> "<<key<<" -is not found in the tree\n";
+}
+else {
+	cout << "Key --> " << value << " -found\n";
+	return value;
+}
     }
 };
 
