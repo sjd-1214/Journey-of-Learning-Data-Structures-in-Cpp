@@ -55,23 +55,27 @@ private:
         }
     }
 
-    int searchKey(Node* rt, int data) {
-	
-	if (rt != nullptr) {
-		if (data == rt->data) {
-			return rt->data;
-		}
-		else if (data < rt->data) {
-			return searchKey(rt->left, data);
-		}
-		else
-			return searchKey(rt->right, data);
-	}
-	else {
-		return '\0';
-	}
+    int searchKey(Node *rt, int data)
+    {
 
-}
+        if (rt != nullptr)
+        {
+            if (data == rt->data)
+            {
+                return rt->data;
+            }
+            else if (data < rt->data)
+            {
+                return searchKey(rt->left, data);
+            }
+            else
+                return searchKey(rt->right, data);
+        }
+        else
+        {
+            return '\0';
+        }
+    }
 
 public:
     BST()
