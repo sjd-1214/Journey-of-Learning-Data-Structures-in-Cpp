@@ -77,22 +77,25 @@ public:
     int search(int key)
     {
         int value = searchKey(root, key);
-if (value != key || value == '\0') {
-	cout << "The key --> "<<key<<" -is not found in the tree\n";
-}
-else {
-	cout << "Key --> " << value << " -found\n";
-	return value;
-}
+        if (value != key || value == '\0')
+        {
+            cout << "The key --> " << key << " -is not found in the tree\n";
+        }
+        else
+        {
+            cout << "Key --> " << value << " -found\n";
+            return value;
+        }
     }
 };
 
-int main() {
-	BST t1;
-	t1.insert(10);
-	t1.insert(11);
-	t1.insert(9);
-	t1.insert(9);
-	t1.taverse();
-	return 0;
+int main()
+{
+    BST t1;
+    t1.insert(10);
+    t1.insert(11);
+    t1.insert(9);
+    t1.insert(9);
+    t1.taverse();
+    return 0;
 }
