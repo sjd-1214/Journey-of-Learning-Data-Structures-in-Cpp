@@ -19,7 +19,10 @@ public:
 		head = NULL;
 	}
 
-	~linkedList(){}
+	~linkedList(){
+		delete head;
+		head = NULL;
+	}
 
 	bool insertEnd(int val) {
 		Node* newNode = new Node(val);
