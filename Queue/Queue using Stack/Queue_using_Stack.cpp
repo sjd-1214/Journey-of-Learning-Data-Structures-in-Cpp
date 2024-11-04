@@ -12,10 +12,9 @@ public:
 class Stack {
 private:
     Node* top;
-    int currentSize;
 
 public:
-    Stack() : top(nullptr),currentSize(0) {}
+    Stack() : top(nullptr){}
 
     ~Stack() {
         while (!isEmpty()) {
@@ -27,13 +26,11 @@ public:
         Node* newNode = new Node(val);
         newNode->next = top;
         top = newNode;
-        currentSize++;
     }
 
     void pop() {
         Node* current = top;
         top = current->next;
-        currentSize--;
         delete current;
     }
 
@@ -43,10 +40,6 @@ public:
 
     int Top() {
         return top->data;
-    }
-
-    int size() {
-        return currentSize;
     }
 
     void display() {
