@@ -39,10 +39,7 @@ public:
 		else if (isEmpty()) {
 			front = rear = 0;
 		} 
-		else
-			rear++;
-
-		que[rear] = val;
+		que[rear++] = val;
 		return true;
 	}
 
@@ -57,7 +54,7 @@ public:
 			rear = front = -1;
 		}
 		
-		num = que[++front];
+		num = que[front++];
 		return true;
 	}
 

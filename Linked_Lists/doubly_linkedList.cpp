@@ -106,7 +106,7 @@ public:
 
 		Node* current = head;
 		while (current->next != NULL) {
-			current = current->next;
+			current = current->next;  // ->  = *.
 		}
 
 		current->prev->next = NULL;
