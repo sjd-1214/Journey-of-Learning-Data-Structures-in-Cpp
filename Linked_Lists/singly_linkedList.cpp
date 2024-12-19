@@ -71,10 +71,10 @@ public:
 		}
 
 		int count = 0;
-		while (current != NULL && count == index - 1) {
+		while (current != NULL && count < index - 1) {
 			count++;
 			current = current->next;
-		}
+		}   
 
 		if (current == NULL && count == index - 1) {
 			delete newNode;
