@@ -38,7 +38,6 @@ public:
 			rear = front = 0;
 		else
 			rear = (rear + 1) % capacity;
-
 		que[rear] = val;
 		return true;
 	}
