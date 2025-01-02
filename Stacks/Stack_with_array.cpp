@@ -15,7 +15,7 @@ public:
 	}
 
 	bool isFull() {
-		return maxSize == top - 1;
+		return top == maxSize - 1;
 	}
 
 	bool isEmpty() {
