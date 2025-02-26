@@ -66,55 +66,46 @@ public:
 		}
 	}
 
-	bool insertMiddle(int index, int val)
+	Node* findMiddle(){
+	    Node *slow = head;
+	    Node *fast = head;
+	    Node *prev = NULL; // To keep track of the node before the middle node
+
+	    while(fast != NULL && fast->next != NULL){
+	        prev = slow;
+	        slow = slow->next;
+	        fast = fast->next->next;
+	    }
+
+	    // If the list has an even number of nodes, return the node before the middle
+	    if (fast == NULL) {
+	        return prev;
+	    }
+
+	    return slow;
+	}
+
+	bool insertMiddle(int val)
 	{
-		
-		if (index < 1)
-		{
-			cout << "INVALID INDEX\n";
-			return false;
-		}
+	    if (head == NULL)
+	    {
+	        head = new Node(val);
+	        return true;
+	    }
 
-		Node *newNode = new Node(val);
+	    Node *middle = findMiddle();
+	    Node *newNode = new Node(val);
 
-		// Handle insertion at the start
-		if (index == 1)
-		{
-			insertStart(val);
-			delete newNode;
-			newNode = NULL;
-			return true;
-		}
+	    if (middle == head && head->next == NULL) {
+	        // If there's only one element, insert after it
+	        newNode->next = head->next;
+	        head->next = newNode;
+	    } else {
+	        newNode->next = middle->next;
+	        middle->next = newNode;
+	    }
 
-		Node *current = head;
-		int count = 0;
-		index--;    // to insert at index starting from one
-		// Traverse the list to find the insertion point
-		while (current != NULL && count < index - 1)
-		{
-			count++;
-			current = current->next;
-		}
-
-		// Handle insertion at the end or invalid index
-		if (current == NULL)
-		{
-			if (count == index - 1)
-			{
-				return insertEnd(val); // Assuming insertEnd handles memory allocation
-			}
-			else
-			{
-				cout << "INDEX OUT OF BOUNDS\n";
-				delete newNode;
-				return false;
-			}
-		}
-
-		// Insert the new node at the specified index
-		newNode->next = current->next;
-		current->next = newNode;
-		return true;
+	    return true;
 	}
 
 	bool deleteEnd()
@@ -227,12 +218,12 @@ int main()
 	lst1.insertEnd(20);
 	lst1.insertEnd(30);
 	lst1.insertStart(40);
-	// lst1.insertSpecify(2, 50);
-	lst1.deleteSpecify(5);
 	lst1.display();
-	// lst1.insertSpecify(2, 60);
+	lst1.deleteSpecify(4);
 	lst1.display();
-	// lst1.insertSpecify(3, 70);
+	lst1.insertMiddle(50);
+	lst1.display();
+	lst1.insertMiddle(60);
 	lst1.display();
 	return 0;
 }
