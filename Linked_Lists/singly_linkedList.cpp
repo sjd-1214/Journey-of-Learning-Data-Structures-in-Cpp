@@ -66,7 +66,7 @@ public:
 		}
 	}
 
-	bool insertSpecify(int index, int val)
+	bool insertMiddle(int index, int val)
 	{
 		
 		if (index < 1)
@@ -227,12 +227,12 @@ int main()
 	lst1.insertEnd(20);
 	lst1.insertEnd(30);
 	lst1.insertStart(40);
-	lst1.insertSpecify(2, 50);
+	// lst1.insertSpecify(2, 50);
 	lst1.deleteSpecify(5);
 	lst1.display();
-	lst1.insertSpecify(2, 60);
+	// lst1.insertSpecify(2, 60);
 	lst1.display();
-	lst1.insertSpecify(3, 70);
+	// lst1.insertSpecify(3, 70);
 	lst1.display();
 	return 0;
 }
